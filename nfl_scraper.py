@@ -95,4 +95,15 @@ All_games = pd.concat(Schedules_cleaned, axis=0)
 All_games = All_games.reset_index(drop=True)
 print(All_games.info())
 
-All_games.to_csv('NFL_Games.csv')
+def get_current_date():
+    import datetime
+    # Get the current date
+    current_date = datetime.datetime.now().date()
+    # Convert the date to a string
+    date_string = current_date.strftime('%Y-%m-%d')
+    # Print the date as a string
+    return date_string
+    
+date  = get_current_date()
+
+All_games.to_csv(f'NFL_Games{date}.csv')
